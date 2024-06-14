@@ -18,9 +18,6 @@ pull-ollama:
 pull-ollama-model:
 	docker exec -it ollama ollama pull all-minilm
 
-exec-ollama:
-	docker exec -it ollama ollama run all-minilm
-
 run-ollama:
 	docker run --rm --name ollama \
 		-v ./data/ollama:/root/.ollama \
@@ -38,3 +35,7 @@ run-pgvector:
 		-v ./data/pgvector:/var/lib/postgresql/data \
 		-p 5432:5432 \
 		pgvector/pgvector:pg16
+
+
+run-e3:
+	go run e3/*.go -book=./data/pg2680.txt
